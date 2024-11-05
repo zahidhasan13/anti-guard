@@ -279,3 +279,86 @@ h4 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+/* Operation css */
+.operations {
+  max-width: 100rem;
+  margin: 12rem auto 0 auto;
+  background-color: #fff;
+}
+.operations-tab-container {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.operation-tab {
+  transform: translateY(-50%);
+}
+.operation-tab span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+.operation-tab-1 {
+  background-color: var(--color-secondary);
+}
+.operation-tab-1:hover {
+  background-color: var(--color-secondary-dark);
+}
+.operation-tab-3 {
+  background-color: var(--color-tertiary);
+}
+.operation-tab-3:hover {
+  background-color: var(--color-tertiary-dark);
+}
+.operation-tab-active {
+  transform: translateY(-66%);
+}
+.operation-content {
+  display: block;
+  font-size: 1.7rem;
+  padding: 2.5rem 7rem 6.5rem 7rem;
+}
+.operation-content-active {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  column-gap: 3rem;
+  row-gap: 0.5rem;
+}
+.operation-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  align-self: center;
+}
+.operation-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+}
+.operation-icon svg {
+  height: 2.75rem;
+  width: 2.75rem;
+}
+.operation-content p {
+  grid-column: 2;
+}
+.operation-icon-1 {
+  background-color: var(--color-secondary-opacity);
+}
+.operation-icon-2 {
+  background-color: var(--color-primary-opacity);
+}
+.operation-icon-3 {
+  background-color: var(--color-tertiary-opacity);
+}
+.operation-icon-1 svg {
+  fill: var(--color-secondary);
+}
+.operation-icon-2 svg {
+  fill: var(--color-primary);
+}
+.operation-icon-3 svg {
+  fill: var(--color-tertiary);
+}
