@@ -479,3 +479,48 @@ h4 {
 .section-title-testimonials {
   margin-bottom: 4rem;
 }
+/* Claim Sign up css */
+.section-sign-up {
+  background-color: #37383d;
+  border-top: none;
+  border-bottom: 1px solid #444;
+  text-align: center;
+  padding: 10rem 3rem;
+}
+.section-sign-up .section-header {
+  color: #fff;
+  text-align: center;
+}
+.section-sign-up .section-description {
+  margin-bottom: 6rem;
+}
+.section-sign-up .btn {
+  font-size: 1.9rem;
+  padding: 2rem 5rem;
+}
+/* Footer */
+.footer {
+  padding: 10rem 3rem;
+  background-color: #37383d;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+.footer-link {
+  font-size: 1.6rem;
+  color: #eee;
+}
+.footer-logo {
+  height: 5rem;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+.footer-copyright {
+  font-size: 1.4rem;
+  color: #aaa;
+  text-align: center;
+}
