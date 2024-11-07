@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <script defer src="./js/script.js"></script>
+    <script type="module" defer src="./js/script.js"></script>
   </head>
   <body>
     <header class="header">
@@ -16,10 +16,12 @@
         <a href="#" class="nav-logo"> Anti <span>Guard</span> </a>
         <ul class="nav-links">
           <li><a href="#" class="nav-link">Home</a></li>
-          <li><a href="#" class="nav-link">Features</a></li>
-          <li><a href="#" class="nav-link">Operations</a></li>
-          <li><a href="#" class="nav-link">Testimonials</a></li>
-          <li><a href="#" class="nav-link nav-link-btn">Get Now</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#operation" class="nav-link">Operations</a></li>
+          <li><a href="#testimonial" class="nav-link">Testimonials</a></li>
+          <li>
+            <a href="#" class="nav-link nav-link-btn btn-show-modal">Get Now</a>
+          </li>
         </ul>
       </nav>
       <!-- Hero -->
@@ -31,7 +33,7 @@
             <span class="highlight">priority</span>
           </h1>
           <h4>The safest web experience for a peaceful life</h4>
-          <a href="#" class="btn-text">Learn More &rarr;</a>
+          <a href="#" class="btn-text btn-scroll-to">Learn More &rarr;</a>
         </div>
         <div class="hero-right">
           <img src="./img/hero.png" alt="hero image" class="hero-img" />
@@ -40,7 +42,7 @@
     </header>
     <main>
       <!-- Features Section -->
-      <section class="section">
+      <section class="section" id="features">
         <div class="section-header">
           <h2 class="section-title">Features</h2>
           <h3 class="section-description">
@@ -133,7 +135,7 @@
         </div>
       </section>
       <!-- Operation section -->
-      <section class="section">
+      <section class="section" id="operation">
         <div class="section-header">
           <h2 class="section-title">Operation</h2>
           <h3 class="section-description">
@@ -249,7 +251,7 @@
         </div>
       </section>
       <!-- Testimonial -->
-      <section class="section">
+      <section class="section" id="testimonial">
         <div class="section-header section-header-testimonials">
           <h2 class="section-title">Testimonials</h2>
           <h3 class="section-description">
@@ -319,7 +321,7 @@
         </div>
       </section>
       <!-- Claim -->
-      <section class="section section-sign-up">
+      <section class="section section-sign-up" id="cliam">
         <div class="section-header">
           <h3 class="section-description">
             The best day to join Tera Guard was one year ago. The second best is
