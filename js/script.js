@@ -2,6 +2,7 @@
 const header = document.querySelector(".header");
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelector(".nav-links");
+const navToggle = document.querySelector(".nav-toggle");
 const btnScrollTo = document.querySelector(".btn-scroll-to");
 const allSections = document.querySelectorAll(".section");
 const features = document.querySelector("#features");
@@ -16,9 +17,10 @@ const btnCloseModal = document.querySelector(".btn-close-modal");
 const cookieBody = document.querySelector(".cookie");
 const cookieCloseBtn = document.querySelector(".cookie-close");
 const slides = document.querySelectorAll(".slide");
-const btnLeft = document.querySelector("slider-btn-left");
-const btnright = document.querySelector("slider-btn-right");
-const dotContainer = document.querySelector("dots");
+const btnLeft = document.querySelector(".slider-btn-left");
+const btnRight = document.querySelector(".slider-btn-right");
+const dotContainer = document.querySelector(".dots");
+const dotActive = document.querySelector(".dots-dot-active");
 
 // Cookie Script
 cookieCloseBtn.addEventListener("click", () => {
@@ -101,4 +103,102 @@ navLinks.addEventListener("click", (e) => {
     const attr = e.target.getAttribute("href");
     document.querySelector(attr).scrollIntoView({ behavior: "smooth" });
   }
+});
+
+// Nav Toggle
+navToggle.addEventListener("click", () => {
+  if (navLinks.classList.contains("nav-open")) {
+    navLinks.classList.remove("nav-open");
+    document.querySelector("html").style.overflow = "visible";
+  } else {
+    navLinks.classList.add("nav-open");
+    document.querySelector("html").style.overflow = "hidden";
+  }
+});
+
+navLinks.addEventListener("click", () => {
+  navLinks.classList.contains("nav-open") &&
+    navLinks.classList.remove("nav-open");
+  document.querySelector("html").style.overflow = "visible";
+});
+
+// Learn more scroll
+btnScrollTo.addEventListener("click", () => {
+  features.scrollIntoView({ behavior: "smooth" });
+});
+
+// Lazy Images
+const lazyImage = (entries, observer) => {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", () => {
+    entry.target.classList.remove("lazy-img");
+  });
+};
+
+const imageObs = new IntersectionObserver(lazyImage, {
+  root: null,
+  threshold: 0.1,
+});
+imageTargets.forEach((img) => imageObs.observe(img));
+
+// Testimonial Slide
+let currentSilde = 0;
+const maxSlide = slides.length - 1;
+
+// create dots
+const cratingDots = () => {
+  slides.forEach((_, i) => {
+    const dot = `<button class="dots-dot" data-slide="${i}"></button>`;
+
+    dotContainer.insertAdjacentHTML("beforeend", dot);
+  });
+};
+cratingDots();
+
+// Active dots
+const activateDots = (sl) => {
+  document
+    .querySelectorAll(".dots-dot")
+    .forEach((dot) => dot.classList.remove("dots-dot-active"));
+  document
+    .querySelector(`.dots-dot[data-slide="${sl}"]`)
+    .classList.add("dots-dot-active");
+};
+activateDots(0);
+// Change Slide
+const changeSlide = (currSlide) => {
+  slides.forEach((sl, i) => {
+    sl.style.transform = `translateX(${100 * (i - currSlide)}%`;
+  });
+};
+changeSlide(0);
+const prevSlide = () => {
+  currentSilde === 0 ? (currentSilde = maxSlide) : currentSilde--;
+  changeSlide(currentSilde);
+  activateDots(currentSilde);
+};
+const nextSlide = () => {
+  currentSilde === maxSlide ? (currentSilde = 0) : currentSilde++;
+  changeSlide(currentSilde);
+  activateDots(currentSilde);
+};
+
+// dot event
+dotContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("dots-dot")) {
+    activateDots(e.target.dataset.slide);
+    changeSlide(e.target.dataset.slide);
+  }
+});
+
+btnLeft.addEventListener("click", prevSlide);
+btnRight.addEventListener("click", nextSlide);
+
+// keyboard
+document.addEventListener("keydown", (e) => {
+  e.key == "ArrowLeft" && prevSlide();
+  e.key == "ArrowRight" && nextSlide();
 });

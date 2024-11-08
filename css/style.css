@@ -184,6 +184,9 @@ img {
 .nav-link-btn:active {
   background-color: var(--color-primary-dark);
 }
+.nav-toggle {
+  display: none;
+}
 /* Hero */
 .hero {
   flex: 1;
@@ -263,6 +266,9 @@ h4 {
 }
 .features-img {
   width: 100%;
+}
+.lazy-img {
+  filter: blur(7px);
 }
 .features-feature {
   align-self: center;
