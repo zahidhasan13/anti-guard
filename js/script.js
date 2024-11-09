@@ -7,7 +7,7 @@ const btnScrollTo = document.querySelector(".btn-scroll-to");
 const allSections = document.querySelectorAll(".section");
 const features = document.querySelector("#features");
 const imageTargets = document.querySelectorAll("img[data-src");
-const tabContainer = document.querySelector(".operation-tab-container");
+const tabContainer = document.querySelector(".operations-tab-container");
 const tabs = document.querySelectorAll(".operation-tab");
 const tabsContent = document.querySelectorAll(".operation-content");
 const modal = document.querySelector(".modal");
@@ -201,4 +201,23 @@ btnRight.addEventListener("click", nextSlide);
 document.addEventListener("keydown", (e) => {
   e.key == "ArrowLeft" && prevSlide();
   e.key == "ArrowRight" && nextSlide();
+});
+
+// Tab Operation
+tabContainer.addEventListener("click", (e) => {
+  console.log(e.target);
+
+  const btn = e.target.closest(".operation-tab");
+
+  if (!btn) return;
+
+  tabs.forEach((tab) => tab.classList.remove("operation-tab-active"));
+  tabsContent.forEach((content) =>
+    content.classList.remove("operation-content-active")
+  );
+
+  btn.classList.add("operation-tab-active");
+  document
+    .querySelector(`.operation-content-${btn.dataset.tab}`)
+    .classList.add("operation-content-active");
 });

@@ -53,7 +53,7 @@ body {
   opacity: 0;
 }
 .section {
-  padding: 15rem 3rem;
+  padding: 10rem 3rem;
   border-top: 1px solid #ddd;
   transition: transform 1s, opacity 1s;
 }
@@ -330,7 +330,7 @@ h4 {
   transform: translateY(-66%);
 }
 .operation-content {
-  display: block;
+  display: none;
   font-size: 1.7rem;
   padding: 2.5rem 7rem 6.5rem 7rem;
 }
